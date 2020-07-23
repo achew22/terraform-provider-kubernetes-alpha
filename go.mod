@@ -3,12 +3,12 @@ module github.com/hashicorp/terraform-provider-kubernetes-alpha
 go 1.14
 
 require (
-	github.com/alexsomesan/openapi-cty v0.0.5-0.20200613004155-675c849b43f4
+	github.com/alexsomesan/openapi-cty v0.0.5
 	github.com/davecgh/go-spew v1.1.1
 	github.com/golang/protobuf v1.3.3
 	github.com/google/go-cmp v0.4.0 // indirect
 	github.com/googleapis/gnostic v0.4.0 // indirect
-	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320
+	github.com/hashicorp/go-cty v1.4.1-0.20200723130312-85980079f637
 	github.com/hashicorp/go-plugin v1.0.1
 	github.com/hashicorp/terraform-json v0.4.0
 	github.com/hashicorp/terraform-plugin-sdk v1.4.1
