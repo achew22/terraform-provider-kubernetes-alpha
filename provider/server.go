@@ -728,17 +728,6 @@ func (s *RawProviderServer) ApplyResourceChange(ctx context.Context, req *tfplug
 			if err != nil {
 				return resp, err
 			}
-
-			gvk, err := GVKFromCtyObject(&o)
-			if err != nil {
-				return resp, fmt.Errorf("failed to determine resource GVR: %s", err)
-			}
-
-			tsch, err := resourceTypeFromOpenAPI(gvk)
-			if err != nil {
-				return resp, fmt.Errorf("failed to determine resource type ID: %s", err)
-			}
-
 			ns, err := IsResourceNamespaced(gvr)
 			if err != nil {
 				return resp, err
@@ -767,6 +756,17 @@ func (s *RawProviderServer) ApplyResourceChange(ctx context.Context, req *tfplug
 			if err != nil {
 				return resp, err
 			}
+
+			gvk, err := GVKFromCtyObject(&o)
+			if err != nil {
+				return resp, fmt.Errorf("failed to determine resource GVR: %s", err)
+			}
+
+			tsch, err := resourceTypeFromOpenAPI(gvk)
+			if err != nil {
+				return resp, fmt.Errorf("failed to determine resource type ID: %s", err)
+			}
+
 			pu, err := CtyObjectToUnstructured(&o)
 			if err != nil {
 				return resp, err
