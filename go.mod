@@ -24,5 +24,3 @@ require (
 	k8s.io/apimachinery v0.18.0
 	k8s.io/client-go v0.18.0
 )
-
-replace github.com/alexsomesan/openapi-cty => /Users/alex/workspace/openapi-cty
