@@ -34,7 +34,6 @@ module "manifests" {
 
   depends_on = [module.cluster]
 
-  server_side_planning = var.server_side_planning
   name = "test-${random_id.uniq.hex}"
   cluster_name = module.cluster.cluster_name
 }
