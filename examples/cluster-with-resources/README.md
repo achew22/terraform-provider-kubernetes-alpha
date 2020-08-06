@@ -24,7 +24,7 @@ The first Terraform apply operation will build just the AKS cluster and other re
  » terraform apply -target module.cluster
 ```
 
-Once this operation succeeds, the AKS cluster is available and the state file contains it's attribute values.
+Once this operation succeeds, the AKS cluster is available and the state file contains its attribute values.
 
 Running `terraform state list` should show the following resources present in the state:
 
