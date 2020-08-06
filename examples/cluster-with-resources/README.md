@@ -11,6 +11,13 @@ This example demonstrates how to group resources related to the cluster in their
 It is still possible to build this configuration and obtain a single state file. For this, two Terraform operations are necessary.
 
 Before anything, make sure your environment is configured with valid Azure credentials.
+In paricular, have these environment variables set to relevant values in your Azure account:
+```
+ARM_SUBSCRIPTION_ID￼￼
+ARM_TENANT_ID￼￼
+ARM_CLIENT_ID (a.k.a. App ID)
+ARM_CLIENT_SECRET (a.k.a. password)
+```
 
 Initialize the workspace:
 

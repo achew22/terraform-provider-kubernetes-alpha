@@ -1,5 +1,6 @@
 variable "server_side_planning" {
   type = bool
+  default = true
 }
 
 provider "azurerm" {
@@ -8,7 +9,7 @@ provider "azurerm" {
 }
 
 provider "kubernetes-alpha" {
-  server_side_planning = false #var.server_side_planning
+  server_side_planning = var.server_side_planning
 
   host = module.cluster.host
   cluster_ca_certificate = module.cluster.cluster_ca_certificate
@@ -35,5 +36,5 @@ module "manifests" {
 
   server_side_planning = var.server_side_planning
   name = "test-${random_id.uniq.hex}"
-  namespace = "k8s-alpha-${random_id.uniq.hex}"
+  cluster_name = module.cluster.cluster_name
 }

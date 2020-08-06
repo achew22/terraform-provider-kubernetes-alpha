@@ -1,32 +1,21 @@
-variable "server_side_planning" {}
 variable "name" {}
-variable "namespace" {}
-
-
-resource "kubernetes_manifest" "test-ns" {
-  provider = kubernetes-alpha
-
-  manifest = {
-    "apiVersion" = "v1"
-    "kind"       = "Namespace"
-    "metadata" = {
-      "name" = var.namespace
-    }
-  }
-}
+variable "cluster_name" {}
 
 resource "kubernetes_manifest" "test-cfm" {
   provider = kubernetes-alpha
 
   manifest = {
-    apiVersion = "v1"
-    kind = "ConfigMap"
-    metadata = {
-	    name = var.name
-	    namespace = kubernetes_manifest.test-ns.object.metadata.name
+    "apiVersion" = "v1"
+    "kind" = "ConfigMap"
+    "metadata" = {
+      "name" = var.name
+      "namespace" = "default"
+      "labels" = {
+        "parent_cluster" = var.cluster_name
+      }
     }
-    data = {
-      foo = "bar"
+    "data" = {
+      "parent_cluster" = var.cluster_name
     }
   }
 }
