@@ -32,7 +32,6 @@ module "cluster" {
 module "manifests" {
   source = "./manifests"
 
-  depends_on = [module.cluster]
 
   name = "test-${random_id.uniq.hex}"
   cluster_name = module.cluster.cluster_name
